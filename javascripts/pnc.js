@@ -22,7 +22,7 @@
 			template : function(params) {
 				appUIState.expanded = false;
 				//return "../partials/onboarding/loan.html";
-				
+				alert("Attempt to route...");
 				console.log("Wtf : ", $('#dashboard_html').html());
 				
 				return "dashboard.html";
@@ -32,6 +32,9 @@
 		.when('/cmt/:section', {
 			templateUrl : function(params) {
 				appUIState.expanded = false;
+				
+				alert("Attempt to route..."+params['section']);
+				
 				return "../partials/" + params['section'] + ".html";
 			},
 			reloadOnSearch : false
