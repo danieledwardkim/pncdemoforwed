@@ -59,13 +59,13 @@
 		alert("Controller loaded");
 		
 		
-		var templateUrl = $sce.getTrustedResourceUrl('../partials/dashboard.html');
-
-	    $templateRequest(templateUrl).then(function(template) {
-	        alert('Tmpl loaded');
-	    }, function(er) {
-	        alert('Error : '+er)
-	    });
+//		var templateUrl = $sce.getTrustedResourceUrl('../partials/dashboard.html');
+//
+//	    $templateRequest(templateUrl).then(function(template) {
+//	        alert('Tmpl loaded');
+//	    }, function(er) {
+//	        alert('Error : '+er)
+//	    });
 		
 		
 		
