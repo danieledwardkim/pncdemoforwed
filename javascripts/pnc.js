@@ -23,14 +23,12 @@
 				appUIState.expanded = false;
 				//return "../partials/onboarding/loan.html";
 				alert("Attempt to route...");
-				console.log("Wtf : ", $('#dashboard_html').html());
-				
-				return "dashboard.html";
+				return "worked??";
 			},
 			reloadOnSearch : false
 		})
 		.when('/cmt/:section', {
-			templateUrl : function(params) {
+			template : function(params) {
 				appUIState.expanded = false;
 				
 				alert("Attempt to route..."+params['section']);
