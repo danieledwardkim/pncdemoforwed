@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
-        xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.example"
-        versionCode = "10" 
-        version     = "1.0.0" >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.example" versionCode="10" version="1.0.0">
 
-    <!-- versionCode is optional and Android only -->
+	<!-- versionCode is optional and Android only -->
 
-    <name>Afta PNC POV Demo</name>
+	<name>Afta PNC POV Demo</name>
 
-    <description>
-        An example Afta Cmt UX
-    </description>
+	<description>
+		An example Afta Cmt UX
+	</description>
 
-    <author href="http://aliya.com" email="daniel@aliya.com">
-        Daniel Kim
-    </author>
-    
-    
-    <preference name="EnableViewportScale" value="true"/> 
-    
+	<author href="http://aliya.com" email="daniel@aliya.com">
+		Daniel Kim
+	</author>
+
+	<preference name="EnableViewportScale" value="false" />
+
+	<platform name="ios">
+		<preference name="orientation" value="portrait" />
+		<preference name="exit-on-suspend" value="true" />
+		<preference name="EnableViewportScale" value="false" />
+
+	</platform>
+
+
+	<!-- Retina iPad -->
+	<splash src="Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+	<splash src="Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
+
 
 </widget>
