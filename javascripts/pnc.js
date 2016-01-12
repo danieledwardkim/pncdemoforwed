@@ -15,14 +15,14 @@
 		$routeProvider.when('/cmt/:section', {
 			templateUrl : function(params) {
 				appUIState.expanded = false;
-				return "/partials/" + params['section'] + ".html";
+				return "../partials/" + params['section'] + ".html";
 			},
 			reloadOnSearch : false
 		})
 		.when('/onboarding/:section',{
 			templateUrl : function(params) {
 				appUIState.expanded = false;
-				return "/partials/onboarding" + params['section'] + ".html";
+				return "../partials/onboarding" + params['section'] + ".html";
 			},
 			reloadOnSearch : false
 		})
