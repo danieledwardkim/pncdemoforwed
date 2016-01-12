@@ -1,1 +1,262 @@
-worked
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- These meta tags come first. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<title>PNC Happy Loan</title>
+
+<!-- Include the CSS -->
+<link href="marketing/dist/toolkit-minimal.css" rel="stylesheet">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+
+<style>
+.logo {
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	border-radius: 80px;
+	z-index: 10000;
+	position: fixed;
+	transition: all 0.5s cubic-bezier(0, 1.1, 0.9, 1.1) 0s;
+}
+
+.logo.expanded {
+	width: 120px;
+	height: 120px;
+}
+
+.menuItem {
+	position: fixed;
+	top: 70px;
+	left: 70px;
+	background-color: #fff;
+	border: 1px solid rgba(100, 100, 100, 0.5);
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	transition: all 0.5s cubic-bezier(0, 1.1, 0.9, 1.1) 0s;
+	text-align: center;
+	z-index: 9999;
+}
+
+.menuItem.expanded {
+	opacity: 0.9;
+	width: 75px;
+	height: 75px;
+	border: 5px solid #f58025;
+}
+
+.menuItem.expanded a {
+	color: #0069aa;
+}
+
+.menuItem.expanded:hover {
+	width: 85px;
+	height: 85px;
+}
+
+.menuItem.menu1.expanded {
+	top: 20px;
+	left: 250px;
+	transition: all 0.4s cubic-bezier(0, 1.1, 0.9, 1) 0s;
+}
+
+.menuItem.menu2.expanded {
+	top: 104px;
+	left: 228px;
+	transition: all 0.5s cubic-bezier(0, 1.1, 0.95, 1) 0s;
+}
+
+.menuItem.menu3.expanded {
+	top: 176px;
+	left: 177px;
+	transition: all 0.6s cubic-bezier(0, 1.1, 0.95, 1.05) 0s;
+}
+
+.menuItem.menu4.expanded {
+	top: 228px;
+	left: 106px;
+	transition: all 0.7s cubic-bezier(0, 1.1, 1, 1) 0s;
+}
+
+.menuItem.menu5.expanded {
+	top: 250px;
+	left: 20px;
+	transition: all 0.8s cubic-bezier(0, 1.1, 0.9, 1) 0s;
+}
+
+.overlay {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: #0069aa;
+	opacity: 0;
+	z-index: 9998;
+	pointer-events: none;
+	transition: all 0.2s linear 0s;
+}
+
+.overlay.expanded {
+	opacity: 1;
+	pointer-events: auto;
+	
+	background-color: rgba(0,105,170,0.9);;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	
+}
+
+.menuItem a {
+	display: inline-block;
+	width: 65px;
+	height: 65px;
+	text-align: center;
+	font-size: 35px;
+	line-height: 65px;
+}
+
+.help {
+	position: fixed;
+	height: 300px;
+	top: 300px;
+	left: 300px;
+	right: 300px; opacity : 0;
+	color: #fff;
+	transition: all 0.5s cubic-bezier(0, 1.1, 0.9, 1.1) 0s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.menuItem.expanded:hover .help {
+	opacity: 1;
+}
+
+.view-animate.ng-enter {
+	transition:opacity 0.4s linear 1s;
+	transition: 0.3s -webkit-filter linear .1s;
+	opacity : 0;
+	-webkit-filter: blur(70px);
+}
+.view-animate.ng-enter-active {
+  opacity:1;
+ -webkit-filter: blur(0px);
+}
+.view-animate.ng-leave {
+	transition:opacity 0.1s linear 0s;
+	opacity : 1;
+}
+.view-animate.ng-leave-active {
+  opacity:0;
+}
+
+
+</style>
+
+</head>
+<body ng-controller="UIController as controller">
+
+	<div class="container-fluid">
+
+
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-center view-animate" ng-view autoscroll="true"></div>
+		<div class="col-md-2">
+			<!--  
+			<div style="background-color: red; width: 100%; height: 300px; font-size: 32px" ng-swipe-left="previousSection()">
+				<div ng-click="previousSection()">left</div> | <span ng-click="nextSection()">right</span>
+			</div>
+			-->
+
+		</div>
+
+		<div class="overlay" ng-click="uiState.expanded = false" ng-class="{'expanded': uiState.expanded}"></div>
+
+		<div class="logo" ng-click="uiState.expanded = !uiState.expanded" ng-class="{'expanded': uiState.expanded}" ng-swipe-left="previousSection()" ng-swipe-right="nextSection()">
+			<img src="images/pnc.png" width="100%" />
+		</div>
+
+		<div class="menuItem menu1" ng-class="{'expanded': uiState.expanded}">
+			<a href="dashboard"><span class="fa fa-home"></span></a>
+			<div class="help">
+				<h1>Dashboard</h1>
+				<hr />
+				<h2>See your Safe to Spend</h2>
+			</div>
+		</div>
+
+		<div class="menuItem menu2" ng-class="{'expanded': uiState.expanded}">
+			<a href="timeline"><span class="fa fa-envelope"></span></a>
+			<div class="help">
+				<h1>Suggestions</h1>
+				<hr />
+				<h2>See Suggestions</h2>
+			</div>
+		</div>
+
+		<div class="menuItem menu3" ng-class="{'expanded': uiState.expanded}">
+			<a href="budgets"><span class="fa fa-usd"></span></a>
+			<div class="help">
+				<h1>Budgets</h1>
+				<hr />
+				<h2>Manage your Budgets</h2>
+			</div>
+		</div>
+
+		<div class="menuItem menu4" ng-class="{'expanded': uiState.expanded}">
+			<a href="plans"><span class="fa fa-compass"></span></a>
+			<div class="help">
+				<h1>Plans</h1>
+				<hr />
+				<h2>Manage your Plans</h2>
+			</div>
+		</div>
+
+		<div class="menuItem menu5" ng-class="{'expanded': uiState.expanded}">
+			<a href="career"><span class="fa fa-briefcase"></span></a>
+			<div class="help">
+				<h1>Career</h1>
+				<hr />
+				<h2>Manage your Career</h2>
+			</div>
+		</div>
+
+
+
+	</div>
+
+<!-- 	<style>
+.wtf {
+	position: fixed;
+	top: 100px;
+	left: 100px;
+	right: 100px;
+	bottom: 100px;
+	background-color: rgba(0,0,0,0.5);;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+</style>
+	<div class="wtf"></div>
+ -->
+
+
+	<!-- Include jQuery (required) and the JS -->
+	<script src="javascripts/jquery.js"></script>
+	<script src="javascripts/angular.min.js"></script>
+	<script src="javascripts/angular-touch.js"></script>
+	<script src="javascripts/angular-route.min.js"></script>
+	<script src="javascripts/angular-animate.min.js"></script>
+	<script src="marketing/dist/toolkit.min.js"></script>
+	<script src="javascripts/pnc.js"></script>
+</body>
+</html>
