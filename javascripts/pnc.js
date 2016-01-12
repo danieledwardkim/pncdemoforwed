@@ -40,7 +40,7 @@
 		.otherwise({
 			redirectTo : function(params, path, search) {
 				alert("What is the path? "+path)
-				return "/cmt/dashboard";
+				return "/";
 			}
 		});
 		$locationProvider.html5Mode({
