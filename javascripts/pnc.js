@@ -2,6 +2,9 @@
 
 	alert('URLS ARE LOADING');
 	
+	
+	
+	
 	var app = angular.module('app', [ 'ngRoute', 'ngAnimate', 'ngTouch' ]);
 	
 	var appUIState = {
@@ -47,7 +50,21 @@
 		});
 	});
 
-	app.controller('UIController', function($scope, $timeout, $location, uiState) {
+	app.controller('UIController', function($scope, $timeout, $location, $sce, $templateRequest, uiState) {
+		
+		alert("Controller loaded");
+		
+		
+		var templateUrl = $sce.getTrustedResourceUrl('../partials/dashboard.html');
+
+	    $templateRequest(templateUrl).then(function(template) {
+	        alert('Tmpl loaded');
+	    }, function(er) {
+	        alert('Error : '+er)
+	    });
+		
+		
+		
 		var module = this;
 		$scope.uiState = uiState;
 		function currentSection() {
