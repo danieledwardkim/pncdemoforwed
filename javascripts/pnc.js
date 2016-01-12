@@ -1,5 +1,7 @@
 (function(angular) {
 
+	alert('URLS ARE LOADING');
+	
 	var app = angular.module('app', [ 'ngRoute', 'ngAnimate', 'ngTouch' ]);
 	
 	var appUIState = {
@@ -12,7 +14,15 @@
 	
 	
 	app.config(function($routeProvider, $locationProvider) {
-		$routeProvider.when('/cmt/:section', {
+		$routeProvider
+		.when('/', {
+			templateUrl : function(params) {
+				appUIState.expanded = false;
+				return "../partials/onboarding/loan.html";
+			},
+			reloadOnSearch : false
+		})
+		.when('/cmt/:section', {
 			templateUrl : function(params) {
 				appUIState.expanded = false;
 				return "../partials/" + params['section'] + ".html";
