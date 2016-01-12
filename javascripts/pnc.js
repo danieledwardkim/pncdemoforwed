@@ -1,9 +1,4 @@
 (function(angular) {
-
-	alert('URLS ARE LOADING');
-	
-	
-	
 	
 	var app = angular.module('app', [ 'ngRoute', 'ngAnimate', 'ngTouch' ]);
 	
@@ -21,9 +16,7 @@
 		.when('/', {
 			template : function(params) {
 				appUIState.expanded = false;
-				//return "../partials/onboarding/loan.html";
-				alert("Attempt to route...");
-				return "worked??";
+				return $('#dashboard_tmpl').html();
 			},
 			reloadOnSearch : false
 		})
@@ -56,20 +49,7 @@
 	});
 
 	app.controller('UIController', function($scope, $timeout, $location, $sce, $templateRequest, uiState) {
-		
-		alert("Controller loaded");
-		
-		
-//		var templateUrl = $sce.getTrustedResourceUrl('../partials/dashboard.html');
-//
-//	    $templateRequest(templateUrl).then(function(template) {
-//	        alert('Tmpl loaded');
-//	    }, function(er) {
-//	        alert('Error : '+er)
-//	    });
-		
-		
-		
+				
 		var module = this;
 		$scope.uiState = uiState;
 		function currentSection() {

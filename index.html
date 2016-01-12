@@ -237,21 +237,78 @@
 
 	</div>
 
-<!-- 	<style>
-.wtf {
-	position: fixed;
-	top: 100px;
-	left: 100px;
-	right: 100px;
-	bottom: 100px;
-	background-color: rgba(0,0,0,0.5);;
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
+	<div style="display: none" id="dashboard_tmpl">
+		<style>
+.giant {
+	font-size: 150px;
+}
+
+.ledger .item {
+	text-align: right;
+}
+
+.ledger .value {
+	text-align: left;
+}
+
+.ledger .spacer {
+	text-align: center;
 }
 </style>
-	<div class="wtf"></div>
- -->
+		<div class="block text-center">
+			<h1>Safe to Spend</h1>
 
+			<div class="giant">$345</div>
+
+			<div>
+				<button type="button" class="btn btn-lg btn-default-outline">Pay Period</button>
+				<button type="button" class="btn btn-lg btn-primary-outline">This Week</button>
+				<button type="button" class="btn btn-lg btn-success-outline">This Month</button>
+			</div>
+
+			<div>
+				<h3 class="muted">Monday 1/2/15 - Tuesday 1/15/15</h3>
+			</div>
+			<hr />
+			<div class="container-fluid ledger">
+				<div class="row">
+					<div class="col-md-5 item">
+						<h3>Income</h3>
+					</div>
+					<div class="col-md-2 spacer">
+						<h3>.................</h3>
+					</div>
+					<div class="col-md-5 value">
+						<h3>$670</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 item">
+						<h3>Expenses</h3>
+					</div>
+					<div class="col-md-2 spacer">
+						<h3>.................</h3>
+					</div>
+					<div class="col-md-5 value">
+						<h3>$200</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 item">
+						<h3>Spent</h3>
+					</div>
+					<div class="col-md-2 spacer">
+						<h3>.................</h3>
+					</div>
+					<div class="col-md-5 value">
+						<h3>$123</h3>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
 
 	<!-- Include jQuery (required) and the JS -->
 	<script src="javascripts/jquery.js"></script>
