@@ -16,5 +16,9 @@
     <author href="http://aliya.com" email="daniel@aliya.com">
         Daniel Kim
     </author>
+    
+    
+    <preference name="EnableViewportScale" value="true"/> 
+    
 
 </widget>
