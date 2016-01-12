@@ -19,9 +19,13 @@
 	app.config(function($routeProvider, $locationProvider) {
 		$routeProvider
 		.when('/', {
-			templateUrl : function(params) {
+			template : function(params) {
 				appUIState.expanded = false;
-				return "../partials/onboarding/loan.html";
+				//return "../partials/onboarding/loan.html";
+				
+				console.log("Wtf : ", $('#dashboard_html').html());
+				
+				return "dashboard.html";
 			},
 			reloadOnSearch : false
 		})
